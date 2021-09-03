@@ -32,6 +32,7 @@ app.use(cors());
 routes.push(new HomeRoutesConfig(app));
 
 server.listen(port, () => {
+    console.log(`Webapp started on port ${port}`);
     routes.forEach((route: CommonRoutesConfig) => {
         debugLog(`Routes configured for ${route.routeName}`);
     });

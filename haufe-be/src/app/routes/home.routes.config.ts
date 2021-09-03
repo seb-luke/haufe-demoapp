@@ -10,7 +10,7 @@ export class HomeRoutesConfig extends CommonRoutesConfig {
     configureRoutes(): e.Application {
         this.app.route('/')
             .get((req: e.Request, res: e.Response) => {
-                res.status(200).send('Hello World!')
+                res.status(200).send('<h1>Hello World!</h1>')
             });
 
         return this.app;
