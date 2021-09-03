@@ -9,7 +9,7 @@ import {HomeRoutesConfig} from "./routes/home.routes.config";
 
 const app: e.Application = e();
 const server: http.Server = http.createServer(app);
-const port = 3333;
+const port = 3333   ;
 const routes: CommonRoutesConfig[] = [];
 const debugLog: debug.IDebugger = debug('haufe-be');
 
