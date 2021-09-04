@@ -1,0 +1,21 @@
+version: '1.0'
+
+services:
+  haufe-fe:
+    build:
+      context: ./haufe-fe
+    ports:
+      - "80:80"
+    networks:
+      - haufe-fe-net
+      - haufe-be-net
+
+  haufe-be:
+    build:
+      context: ./haufe-be
+    networks:
+      - haufe-be-net
+
+networks:
+  haufe-fe-net:
+  haufe-be-net:
