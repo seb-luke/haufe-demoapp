@@ -7,7 +7,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:slim
+FROM node:lts-alpine3.13
 WORKDIR /app
 COPY --from=builder ~/package/node_modules ./node_modules
 COPY --from=builder ~/package/dist .
