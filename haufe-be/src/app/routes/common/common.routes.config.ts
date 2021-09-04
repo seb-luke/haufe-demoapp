@@ -1,11 +1,11 @@
 import e = require("express");
 
 export abstract class CommonRoutesConfig {
-    protected app: e.Application;
+    protected router: e.Router;
     private readonly name: string;
 
-    protected constructor(app: e.Application, name: string) {
-        this.app = app;
+    protected constructor(router: e.Router, name: string) {
+        this.router = router;
         this.name = name;
         this.configureRoutes();
     }
@@ -14,5 +14,5 @@ export abstract class CommonRoutesConfig {
         return this.name;
     }
 
-    abstract configureRoutes(): e.Application;
+    abstract configureRoutes(): e.Router;
 }

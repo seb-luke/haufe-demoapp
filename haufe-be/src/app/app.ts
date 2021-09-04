@@ -9,9 +9,11 @@ import {HomeRoutesConfig} from "./routes/home.routes.config";
 
 const app: e.Application = e();
 const server: http.Server = http.createServer(app);
-const port = 3333   ;
+const router: e.Router = e.Router();
+const port = 3333;
 const routes: CommonRoutesConfig[] = [];
 const debugLog: debug.IDebugger = debug('haufe-be');
+const contextPath = '/api';
 
 const loggerOptions: expressWinston.LoggerOptions = {
     transports: [new winston.transports.Console()],
@@ -26,10 +28,12 @@ if (!process.env.DEBUG) {
     loggerOptions.meta = false;
 }
 
+routes.push(new HomeRoutesConfig(router));
+
 app.use(expressWinston.logger(loggerOptions));
 app.use(cors());
 
-routes.push(new HomeRoutesConfig(app));
+app.use(contextPath, router);
 
 server.listen(port, () => {
     console.log(`Webapp started on port ${port}`);
