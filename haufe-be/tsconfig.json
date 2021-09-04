@@ -6,6 +6,7 @@
     "outDir": "./dist",
     "strict": true,
     "inlineSourceMap": true,
+    "inlineSources": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
     "alwaysStrict": true,

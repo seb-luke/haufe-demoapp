@@ -1,10 +1,10 @@
 import e = require("express");
-import {CommonRoutesConfig} from "./common/common.routes.config";
+import {BaseController} from "./common/base.controller";
 
-export class HomeRoutesConfig extends CommonRoutesConfig {
+export class HomeController extends BaseController {
 
     constructor(router: e.Router) {
-        super(router, 'HomeRoutes');
+        super(router, 'HomeController');
     }
 
     configureRoutes(): e.Router {

@@ -1,6 +1,6 @@
 import e = require("express");
 
-export abstract class CommonRoutesConfig {
+export abstract class BaseController {
     protected router: e.Router;
     private readonly name: string;
 

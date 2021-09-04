@@ -16,9 +16,7 @@ services:
     networks:
       - haufe-be-net
     environment:
-      DATABASE_USERNAME: ${DB_USER}
-      DATABASE_PASSWORD: ${DB_PWD}
-      DATABASE_URL: mongodb://${DB_USER}:${DB_PWD}@mongo:27017/
+      MONGO_CONNECTION_STRING: mongodb://${DB_USER}:${DB_PWD}@haufe-db:27017/
 
   haufe-db:
     image: mongo:5.0.2-focal
