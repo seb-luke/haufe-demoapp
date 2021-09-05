@@ -3,6 +3,10 @@ import {HTTP} from "../../common/http";
 import {StatusMessage} from "../domain/status-message.model";
 import {HomeComponent} from "../home/Home.component";
 import {HealthCheckErrorComponent} from "../error/HealthCheckError.component";
+import { Route, Switch } from "react-router-dom";
+import {RestrictedComponent} from "../restricted/Restricted.component";
+import {LoginComponent} from "../../common/Login.component";
+import {PrivateRoute} from "../../common/PrivateRoute";
 
 interface StateModel {
     isLoading: boolean | undefined,
@@ -42,7 +46,13 @@ export class AppMain extends React.Component<{}, StateModel> {
 
         return (
             <main className="px-3">
-                { isBackendHealthy ? <HomeComponent/> : <HealthCheckErrorComponent/>}
+                <Switch>
+                    <PrivateRoute path={'/restricted'}><RestrictedComponent/></PrivateRoute>
+                    <Route path={'/login'}><LoginComponent/></Route>
+                    <Route path="/">
+                        { isBackendHealthy ? <HomeComponent/> : <HealthCheckErrorComponent/>}
+                    </Route>
+                </Switch>
             </main>
         )
     }
