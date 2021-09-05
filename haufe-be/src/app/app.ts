@@ -34,7 +34,9 @@ routes.push(new HomeController(router));
 routes.push(new HealthController(router));
 
 app.use(expressWinston.logger(loggerOptions));
-app.use(cors());
+app.use(cors({
+    origin: 'localhost'
+}));
 
 app.use(contextPath, router);
 
