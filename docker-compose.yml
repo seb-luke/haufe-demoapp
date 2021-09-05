@@ -1,0 +1,37 @@
+version: '1.0'
+
+services:
+  haufe-fe:
+    build:
+      context: ./haufe-fe
+    ports:
+      - "80:80"
+    networks:
+      - haufe-fe-net
+      - haufe-be-net
+
+  haufe-be:
+    build:
+      context: ./haufe-be
+    networks:
+      - haufe-be-net
+    environment:
+      MONGO_CONNECTION_STRING: mongodb://${DB_USER}:${DB_PWD}@haufe-db:27017/
+
+  haufe-db:
+    image: mongo:5.0.2-focal
+    restart: always
+    networks:
+      - haufe-be-net
+    volumes:
+      - haufe-db-volume:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PWD}
+
+networks:
+  haufe-fe-net:
+  haufe-be-net:
+
+volumes:
+  haufe-db-volume:

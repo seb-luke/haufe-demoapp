@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
